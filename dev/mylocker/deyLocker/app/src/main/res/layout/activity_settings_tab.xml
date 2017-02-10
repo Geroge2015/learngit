@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:id="@+id/bottom_buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F7FFFFFF"
+        android:orientation="horizontal"
+        android:weightSum="4">
+        <RadioButton
+            android:id="@+id/tab_style"
+            style="@style/main_tab_bottom"
+            android:layout_weight="1"
+            android:tag="radio_button1"
+            android:text="@string/lock_setting_item_individuation"
+            android:drawableTop="@drawable/tab_ico_theme" />
+        <RadioButton
+            android:id="@+id/tab_security"
+            style="@style/main_tab_bottom"
+            android:layout_weight="1"
+            android:tag="radio_button1"
+            android:text="@string/lock_tabsetting_item_security"
+            android:drawableTop="@drawable/tab_ico_security"/>
+
+        <RadioButton
+            android:id="@+id/tab_notification"
+            style="@style/main_tab_bottom"
+            android:layout_weight="1"
+            android:tag="radio_button1"
+            android:text="@string/lock_settnig_item_message"
+            android:drawableTop="@drawable/tab_ico_notification"/>
+
+        <RadioButton
+            android:id="@+id/tab_more"
+            style="@style/main_tab_bottom"
+            android:layout_weight="1"
+            android:tag="radio_button1"
+            android:text="@string/tool_box_more"
+            android:drawableTop="@drawable/tab_ico_more"/>
+
+    </RadioGroup>
+
+</RelativeLayout>

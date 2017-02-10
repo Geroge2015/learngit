@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyLocker</string>
+
+    <string name="lock_setting_item_individuation">Personalize</string>
+    <string name="lock_tabsetting_item_security">Security</string>
+    <string name="lock_settnig_item_message">Notifications</string>
+    <string name="tool_box_more">More</string>
+
 </resources>
