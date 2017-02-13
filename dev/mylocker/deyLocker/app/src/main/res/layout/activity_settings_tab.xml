@@ -14,14 +14,14 @@
         android:orientation="horizontal"
         android:weightSum="4">
         <RadioButton
-            android:id="@+id/tab_style"
+            android:id="@+id/tab_style_wallpaper"
             style="@style/main_tab_bottom"
             android:layout_weight="1"
             android:tag="radio_button1"
             android:text="@string/lock_setting_item_individuation"
             android:drawableTop="@drawable/tab_ico_theme" />
         <RadioButton
-            android:id="@+id/tab_security"
+            android:id="@+id/tab_protect"
             style="@style/main_tab_bottom"
             android:layout_weight="1"
             android:tag="radio_button1"
@@ -29,7 +29,7 @@
             android:drawableTop="@drawable/tab_ico_security"/>
 
         <RadioButton
-            android:id="@+id/tab_notification"
+            android:id="@+id/tab_message"
             style="@style/main_tab_bottom"
             android:layout_weight="1"
             android:tag="radio_button1"
@@ -37,7 +37,7 @@
             android:drawableTop="@drawable/tab_ico_notification"/>
 
         <RadioButton
-            android:id="@+id/tab_more"
+            android:id="@+id/tab_options"
             style="@style/main_tab_bottom"
             android:layout_weight="1"
             android:tag="radio_button1"

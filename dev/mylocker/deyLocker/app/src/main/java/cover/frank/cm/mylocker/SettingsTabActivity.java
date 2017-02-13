@@ -40,6 +40,17 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tab_style_wallpaper:
+
+                break;
+            case R.id.tab_protect:
+                break;
+            case R.id.tab_message:
+                break;
+            case R.id.tab_options:
+                break;
+        }
 
     }
 }
