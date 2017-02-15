@@ -22,6 +22,7 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
     private SettingBaseFragment mSecurityTabFragment;
     private SettingBaseFragment mNotificationTabFragment;
     private SettingBaseFragment mMoreTabFragment;
+    private SettingBaseFragment mCurrentFragment;
 
     private static final String TAG_TAB_THEME = "tag_tab_theme";
     private static final String TAG_TAB_SECURITY = "tag_tab_security";
@@ -52,12 +53,14 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
         if (null == mSecurityTabFragment) {
             mSecurityTabFragment = new SecurityTabFragment();
         }
-        // todo   there are two fragment undo.
+        // TODO: 2017/2/15 another two fragment
         setupTabButtons();
     }
 
     private void setupTabButtons() {
 
+        mTabTheme = (RadioButton) this.findViewById(R.id.tab_style_wallpaper);
+        mTabTheme.setOnClickListener(this);
         mTabSecurity = (RadioButton) this.findViewById(R.id.tab_protect);
         mTabSecurity.setOnClickListener(this);
 
@@ -83,19 +86,20 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        boolean result = false;
-        switch (v.getId()) {
-            case R.id.tab_style_wallpaper:
-                result = switchFragment(mThemeTabFragment, TAG_TAB_THEME);
-                break;
-            case R.id.tab_protect:
-                result = switchFragment(mSecurityTabFragment, TAG_TAB_SECURITY);
-
-                break;
-            case R.id.tab_message:
-                break;
-            case R.id.tab_options:
-                break;
+                boolean result = false;
+                switch (v.getId()) {
+                    case R.id.tab_style_wallpaper:
+                        result = switchFragment(mThemeTabFragment, TAG_TAB_THEME);
+                        break;
+                    case R.id.tab_protect:
+                        result = switchFragment(mSecurityTabFragment, TAG_TAB_SECURITY);
+                        break;
+                    case R.id.tab_message:
+                        // TODO: 2017/2/15
+                        break;
+                    case R.id.tab_options:
+                        // TODO: 2017/2/15
+                        break;
         }
 
     }
@@ -103,17 +107,24 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
     private boolean switchFragment(SettingBaseFragment fragment, String tag) {
         try {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
             if (fragment.getAdded()) {
-
+                if (null != mCurrentFragment) {
+                    transaction.hide(mCurrentFragment);
+                }
+                transaction.show(fragment);
             } else {
                 transaction.add(R.id.fragment_layout, fragment, tag);
+                if (null != mCurrentFragment) {
+                    transaction.hide(mCurrentFragment);
+                }
                 fragment.setAdded(true);
                 transaction.show(fragment);
             }
             transaction.commit();
+            mCurrentFragment = fragment;
             return true;
         } catch (Exception e) {
+            fragment.setAdded(false);
             e.printStackTrace();
             return false;
         }
