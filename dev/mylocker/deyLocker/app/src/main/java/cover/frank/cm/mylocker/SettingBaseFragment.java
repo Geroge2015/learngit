@@ -1,6 +1,7 @@
 package cover.frank.cm.mylocker;
 
-import android.support.v4.app.Fragment;
+
+import android.app.Fragment;
 
 /**
  * Created by George on 2017/2/13.

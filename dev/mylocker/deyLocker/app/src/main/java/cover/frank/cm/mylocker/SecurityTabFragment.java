@@ -1,5 +1,6 @@
 package cover.frank.cm.mylocker;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by George on 2017/2/13.
+ *
  */
 
 public class SecurityTabFragment extends SettingBaseFragment {
@@ -31,5 +33,10 @@ public class SecurityTabFragment extends SettingBaseFragment {
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setTitle("GIT HUB NO 1");
         toolbar.setLogo(R.mipmap.page_1);
+
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_content, mFragment);
+
+        transaction.commit();
     }
 }

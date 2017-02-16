@@ -1,13 +1,12 @@
 package cover.frank.cm.mylocker;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
 
@@ -43,8 +42,7 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setupView() {
-        FragmentManager fm = getSupportFragmentManager();
-
+        FragmentManager fm = getFragmentManager();
         mThemeTabFragment = (ThemeTabFragment)fm.findFragmentByTag(TAG_TAB_THEME);
         if (null == mThemeTabFragment) {
             mThemeTabFragment = new ThemeTabFragment();
@@ -106,7 +104,7 @@ public class SettingsTabActivity extends AppCompatActivity implements View.OnCli
 
     private boolean switchFragment(SettingBaseFragment fragment, String tag) {
         try {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
             if (fragment.getAdded()) {
                 if (null != mCurrentFragment) {
                     transaction.hide(mCurrentFragment);
